@@ -1,7 +1,6 @@
 # DeMANd
 
-Demand is an idea for a (maybe just personal) specification of documentation files for directories - similar to what `man`
-is for programs.
+Demand is a simple way of documenting directories - similar to what `man` is for programs.
 
 ## Specification
 
