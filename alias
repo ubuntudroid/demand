@@ -1,0 +1,21 @@
+function findup {
+  slashes=${PWD//[^\/]/}
+  directory="$PWD"
+  for (( n=${#slashes}; n>1; --n ))
+  do
+    test -e "$directory/$1" && echo "$directory/$1" && return 
+    directory="$directory/.."
+  done
+}
+
+function dman {
+  dmanfile=$(findup .dman)
+  if [ -z "$dmanfile" ]; then
+    dmanfile=$(findup README.md)
+  fi
+  if [ -z "$dmanfile" ]; then
+    echo "No .dman or README.md found"
+  else
+    less $dmanfile
+  fi
+}
